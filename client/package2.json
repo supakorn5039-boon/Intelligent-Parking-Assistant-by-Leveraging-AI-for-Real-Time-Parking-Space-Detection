@@ -1,0 +1,37 @@
+{
+  "name": "smart",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-native-picker/picker": "2.4.8",
+    "expo": "~48.0.18",
+    "expo-status-bar": "~1.4.4",
+    "modal": "^1.2.0",
+    "react": "18.2.0",
+    "react-model": "^4.3.1",
+    "react-native": "^0.71.8",
+    "react-native-awesome-alert": "^0.4.5",
+    "react-native-awesome-alerts": "^2.0.0",
+    "react-native-dropdown-picker": "^5.4.6",
+    "react-native-ionicons": "^4.6.5",
+    "react-native-maps": "1.3.2",
+    "react-native-modal": "^13.0.1",
+    "react-native-modal-dropdown": "^1.0.2",
+    "react-native-reanimated": "^3.3.0",
+    "react-native-simple-toast": "^3.0.0",
+    "react-native-splash-screen": "^3.3.0",
+    "react-native-sweet-alert": "^3.5.0",
+    "react-native-toast-message": "^2.1.6",
+    "react-native-vector-icons": "^10.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
