@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "Smart Parking",
-    "slug": "Smart Parking",
+    "name": "Smart-Parking",
+    "slug": "Smart-Parking",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/Icons/park.png",
+    "icon": "./assets/images/splash.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/Icons/park1.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -17,12 +17,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/splash.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/park.png"
+      "favicon": "./assets/images/splash.png"
     }
   }
 }

@@ -1,0 +1,71 @@
+import { View, Text } from "react-native";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Register from "../screens/Register";
+import Login from "../screens/Login";
+import Welcome from "../screens/WelcomeScreen";
+import Map from "../Map/Map";
+import Menu from "../screens/Menu";
+import Car from "../Map/Car";
+import Mot from "../Map/Motorcycle";
+import MapScreen from "../screens/MapScreen";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
+const Stack = createNativeStackNavigator();
+
+const Navigate = () => {
+  return (
+    <NavigationContainer>
+      <SafeAreaProvider>
+        <Stack.Navigator
+          initialRouteName="Menu"
+          options={{ headerShown: false }}
+        >
+          <Stack.Screen
+            name="Welcome"
+            component={Welcome}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Register"
+            options={{ headerShown: false }}
+            component={Register}
+          />
+          <Stack.Screen
+            name="Login"
+            options={{ headerShown: false }}
+            component={Login}
+          />
+          <Stack.Screen
+            name="Map"
+            options={{ headerShown: false }}
+            component={Map}
+          />
+          <Stack.Screen
+            name="Menu"
+            options={{ headerShown: false }}
+            component={Menu}
+          />
+          <Stack.Screen
+            name="MapScreen"
+            options={{ headerShown: false }}
+            component={MapScreen}
+          />
+          <Stack.Screen
+            name="Car"
+            options={{ headerShown: false }}
+            component={Car}
+          />
+          <Stack.Screen
+            name="Mot"
+            options={{ headerShown: false }}
+            component={Mot}
+          />
+        </Stack.Navigator>
+      </SafeAreaProvider>
+    </NavigationContainer>
+  );
+};
+
+export default Navigate;
