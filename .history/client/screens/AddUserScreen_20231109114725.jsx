@@ -1,0 +1,1 @@
+mport { Component } from 'react';

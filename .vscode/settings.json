@@ -1,7 +1,7 @@
 {
-  "cSpell.words": ["grayp", "jwtsecret"],
+  "cSpell.words": ["grayp", "Tpfj"],
 
-  "workbench.colorTheme": "Winter is Coming (Dark Blue)",
+  "workbench.colorTheme": "Beautiful Dracula Normal",
   "workbench.iconTheme": "material-icon-theme",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
