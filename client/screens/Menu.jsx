@@ -6,7 +6,7 @@ import NavOptions from "../components/NavOptions";
 const Menu = () => {
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
-      <View style={tw`p-5`}>
+      <View style={tw`p-5` }>
         <Image
           source={require("../image/transport.png")}
           style={{

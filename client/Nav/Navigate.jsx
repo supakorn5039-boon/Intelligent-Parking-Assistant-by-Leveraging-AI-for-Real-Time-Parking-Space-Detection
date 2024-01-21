@@ -1,10 +1,9 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Register from "../screens/Register";
 import Login from "../screens/Login";
-import Welcome from "../screens/WelcomeScreen";
+import Welcome from "../screens/Welcome";
 import Menu from "../screens/Menu";
 import Car from "../Map/Car";
 import Mot from "../Map/Motorcycle";
@@ -26,6 +25,7 @@ const Navigate = () => {
             screenOptions={screenOptions}
             component={Welcome}
           />
+
           <Stack.Screen
             name="Register"
             screenOptions={screenOptions}
