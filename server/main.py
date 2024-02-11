@@ -3,26 +3,26 @@ import pickle
 import firebase_admin
 from firebase_admin import credentials, firestore
 from datetime import datetime
+import numpy as np
 import time
-import uuid
 
-width, height = 70, 27
-threshold = 2
-firebase_update_interval = 6  # Update interval in seconds
+width, height = 60, 30
+
+threshold = 3
+firebase_update_interval = 10  # Update interval in seconds
 
 # Initialize Firebase
-cred = credentials.Certificate(
-    "smart-parking-e0f33-firebase-adminsdk-g8j23-ba95d55480.json")
+cred = credentials.Certificate("smart-parking-e0f33-firebase-adminsdk-g8j23-ba95d55480.json")
 firebase_admin.initialize_app(cred)
-
 db = firestore.client()
 
-
-def checkParkingSpace(imgPro, imgOriginal):
+def checkParkingSpace(imgPro, imgOriginal, posList):
     emptyCount = 0  # Initialize the count of empty (green) rectangles
     fullCount = 0  # Initialize the count of full (red) rectangles
 
-    for pos in posList:
+    positions, _, angles = posList  # Unpack the tuple and get the list of positions and angles
+
+    for pos, angle in zip(positions, angles):
         x, y = pos
         imgCrop = imgPro[y:y + height, x:x + width]
         count = cv2.countNonZero(imgCrop)
@@ -32,16 +32,17 @@ def checkParkingSpace(imgPro, imgOriginal):
             color = (0, 255, 0)  # Green
             thickness = 1
             emptyCount += 1
-
         else:
             # Use shades of red based on the count value
             red_shade = int(count / 10)  # Adjust the division factor as needed
-
             color = (0, 0, 255 - red_shade)
             thickness = 1
             fullCount += 1
-        cv2.rectangle(imgOriginal, pos, (x + width,
-                      y + height), color, thickness)
+
+        # Rotate the rectangle before drawing
+        rotated_rect = cv2.minAreaRect(np.int0(cv2.boxPoints(((x, y), (width, height), angle))))
+        box = np.int0(cv2.boxPoints(rotated_rect))
+        cv2.drawContours(imgOriginal, [box], 0, color, thickness)
 
     # Calculate the total count of parking spaces
     totalCount = emptyCount + fullCount
@@ -53,11 +54,20 @@ def checkParkingSpace(imgPro, imgOriginal):
     return emptyCount  # Return the count of empty spaces
 
 
+
 # video feed
-cap = cv2.VideoCapture('carPark.mp4')
+cap = cv2.VideoCapture('real.mp4')
+
+
+# Connect with IP 
+# camera_url = 'http://your_camera_url/video'
+# cap = cv2.VideoCapture(camera_url)
+
 
 with open('carParkPos', 'rb') as f:
     posList = pickle.load(f)
+
+print("Loaded posList:", posList)
 
 # Timestamp for the last Firebase update
 last_firebase_update_time = time.time()
@@ -80,8 +90,9 @@ while True:
     saturation = img_hsv[:, :, 1]  # Saturation channel
     _, imgThreshold = cv2.threshold(saturation, 100, 255, cv2.THRESH_BINARY)
 
-    # Pass imgThreshold and img_copy as arguments
-    empty_count = checkParkingSpace(imgThreshold, img_copy)
+    # Pass imgThreshold, img_copy, and posList as arguments
+    empty_count = checkParkingSpace(imgThreshold, img_copy, posList)
+    
 
     # Check if 10 seconds have passed since the last Firebase update
     current_time = time.time()
@@ -93,6 +104,7 @@ while True:
                 'available': empty_count,
                 'timestamp': firestore.SERVER_TIMESTAMP
             })
+
 
             print("Document added successfully.")
 

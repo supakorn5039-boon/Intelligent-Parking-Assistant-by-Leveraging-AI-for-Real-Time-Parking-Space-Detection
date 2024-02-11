@@ -6,7 +6,7 @@ import Login from "../screens/Login";
 import Welcome from "../screens/Welcome";
 import Menu from "../screens/Menu";
 import Car from "../Map/Car";
-import Stat from "../Map/Stat";
+import Stat from "../Map/StatCar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const Stack = createNativeStackNavigator();
