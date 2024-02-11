@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Beautiful Dracula Normal",
+  "workbench.colorTheme": "Beautiful Dracula Darker - No Highlight",
   "workbench.iconTheme": "material-icon-theme",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {

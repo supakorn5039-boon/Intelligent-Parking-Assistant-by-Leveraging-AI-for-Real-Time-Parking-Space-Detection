@@ -1,14 +1,6 @@
 {
-  "cSpell.words": [
-    "cvzone",
-    "imread",
-    "imshow",
-    "LBUTTONDOWN",
-    "pyheif",
-    "RBUTTONDOWN"
-  ],
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
-  "python.formatting.provider": "none"
+  "python.REPL.enableREPLSmartSend": false
 }
