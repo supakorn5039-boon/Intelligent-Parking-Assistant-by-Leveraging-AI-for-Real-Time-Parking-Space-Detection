@@ -1,23 +1,44 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Text,
+} from "react-native";
 import React from "react";
 import tw from "tailwind-react-native-classnames";
-import NavOptions from "../components/NavOptions";
+import { useNavigation } from "@react-navigation/native";
 
 const Menu = () => {
+  const navigation = useNavigation();
   return (
-    <SafeAreaView style={tw`bg-white h-full`}>
-      <View style={tw`p-5` }>
+    <SafeAreaView style={tw`h-full`}>
+      <View style={tw`p-5`}>
         <Image
           source={require("../image/transport.png")}
           style={{
-            width: 70,
-            height: 70,
+            width: 80,
+            height: 80,
             resizeMode: "contain",
-            marginBottom: 30,
+            marginBottom: "10%",
           }}
         />
+      </View>
 
-        <NavOptions />
+      <View style={styles.headerBox}>
+        <TouchableOpacity
+          style={styles.Carbox}
+          onPress={() => navigation.navigate("Car")}
+        >
+          <Image style={styles.car} source={require("../image/parking.png")} />
+          <Text style={styles.TextCar}>Car Parking</Text>
+        </TouchableOpacity>
+
+        <View style={styles.Bikebox}>
+          <Image style={styles.Bike} source={require("../image/moped.png")} />
+          <Text style={styles.ComingSoon}>Coming Soon..</Text>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -26,7 +47,48 @@ const Menu = () => {
 export default Menu;
 
 const styles = StyleSheet.create({
-  text: {
-    color: "blue",
+  headerBox: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  Carbox: {
+    backgroundColor: "#C1BEC0",
+    padding: 10,
+    marginLeft: "6%",
+    borderRadius: 16,
+  },
+
+  car: {
+    width: 130,
+    height: 120,
+  },
+
+  TextCar: {
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  Bikebox: {
+    backgroundColor: "#C1BEC0",
+    alignSelf: "flex-end",
+    padding: 12,
+    marginRight: "8%",
+    borderRadius: 16,
+  },
+
+  Bike: {
+    width: 130,
+    height: 120,
+  },
+
+  ComingSoon: {
+    fontSize: 14,
+    color: "red",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+
+  arrow: {
+    backgroundColor: "black",
   },
 });

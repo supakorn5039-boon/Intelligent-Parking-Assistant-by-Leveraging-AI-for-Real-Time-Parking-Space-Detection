@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import {COLORS} from '../theme/theme'
+import { COLORS } from "../theme/theme";
 
 export default function Welcome() {
   const navigation = useNavigation();
@@ -18,7 +18,6 @@ export default function Welcome() {
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.bg }}>
       <View style={styles.container}>
         <Text style={styles.text}>WELCOME TO SMART PARKING</Text>
-
         <View style={styles.imageContainer}>
           <Image
             source={require("../image/parking.png")}
@@ -28,7 +27,7 @@ export default function Welcome() {
 
         <View style={styles.VS}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Login")}
+            onPress={() => navigation.navigate("Menu")}
             style={styles.space}
           >
             <Text style={styles.textSign}>Let's Start</Text>
@@ -74,6 +73,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 22,
   },
+
   VS: {
     marginVertical: 4,
   },

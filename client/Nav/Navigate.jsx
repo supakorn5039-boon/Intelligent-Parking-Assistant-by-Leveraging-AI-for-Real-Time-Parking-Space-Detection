@@ -6,7 +6,7 @@ import Login from "../screens/Login";
 import Welcome from "../screens/Welcome";
 import Menu from "../screens/Menu";
 import Car from "../Map/Car";
-import Mot from "../Map/Motorcycle";
+import Stat from "../Map/Stat";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const Stack = createNativeStackNavigator();
@@ -19,14 +19,14 @@ const Navigate = () => {
   return (
     <NavigationContainer>
       <SafeAreaProvider>
-        <Stack.Navigator initialRouteName="Menu" screenOptions={screenOptions}>
+        <Stack.Navigator initialRouteName="Car" screenOptions={screenOptions}>
           <Stack.Screen
             name="Welcome"
             screenOptions={screenOptions}
             component={Welcome}
           />
 
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Register"
             screenOptions={screenOptions}
             component={Register}
@@ -35,7 +35,7 @@ const Navigate = () => {
             name="Login"
             screenOptions={screenOptions}
             component={Login}
-          />
+          /> */}
 
           <Stack.Screen
             name="Menu"
@@ -49,9 +49,9 @@ const Navigate = () => {
             component={Car}
           />
           <Stack.Screen
-            name="Mot"
+            name="Stat"
             screenOptions={screenOptions}
-            component={Mot}
+            component={Stat}
           />
         </Stack.Navigator>
       </SafeAreaProvider>

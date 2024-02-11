@@ -1,6 +1,4 @@
 {
-  "cSpell.words": ["grayp", "Tpfj"],
-
   "workbench.colorTheme": "Beautiful Dracula Normal",
   "workbench.iconTheme": "material-icon-theme",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -32,7 +30,7 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false,
+    "editor.wordBasedSuggestions": "off",
     "editor.defaultFormatter": "Dart-Code.dart-code"
   },
   "go.toolsManagement.autoUpdate": true,

@@ -13,7 +13,6 @@ const COLORS = {
 const SIZES = {
   base: 12,
   icon: 16,
-  font: 16,
   arrow: 25,
 };
 
@@ -23,8 +22,8 @@ const ITEMS = {
     padding: 8,
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
-    marginLeft: 16,
-    marginTop: 20,
+    marginLeft: "3%",
+    marginTop: "8%",
   },
 
   NextButton: {
@@ -35,6 +34,29 @@ const ITEMS = {
     marginLeft: 120,
     marginTop: 20,
   },
+
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+  },
+  header: {
+    flexDirection: "row",
+    marginBottom: 10,
+  },
+  cell: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "black",
+    paddingVertical: 10,
+  },
+  headerCell: {
+    fontWeight: "bold",
+    backgroundColor: "#f0f0f0",
+  },
+
   container: {
     flex: 1,
     backgroundColor: "#B5C0EF",
@@ -44,84 +66,48 @@ const ITEMS = {
     justifyContent: "start",
   },
   title: {
-    marginLeft: 120,
-    marginTop: 30,
+    marginLeft: "30%",
+    marginTop: "10%",
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 20,
   },
-  sq: {
+
+  squareBox: {
     flexDirection: "row",
-    alignItems: "center",
     padding: 10,
     backgroundColor: COLORS.gray,
-    marginLeft: 10,
-    marginTop: 20,
+    marginLeft: "3%",
+    marginTop: "6%",
     borderRadius: 20,
-    marginRight: 10,
+    marginRight: "3%",
   },
+  comtitle: {
+    marginLeft: "25%",
+    marginTop: "10%",
+    fontSize: 18,
+    color: "white",
+    fontWeight: "500",
+  },
+
   img: {
     width: 150,
     height: 120,
     borderRadius: 15,
-    marginRight: 10,
-  },
-  imgDes: {
-    width: 200,
-    height: 150,
-    borderRadius: 10,
-    marginBottom: 20,
-    marginTop: 30,
-    marginLeft: 100,
-  },
-  com: {
-    marginTop: 15,
-    marginLeft: 50,
-    marginBottom: 30,
-    fontSize: 18,
-    color: "white",
-    fontWeight: "500",
-  },
-  pro: {
-    marginTop: 15,
-    marginLeft: 50,
-    marginBottom: 30,
-    fontSize: 18,
-    color: "white",
-    fontWeight: "500",
-  },
-  survey: {
-    marginTop: 15,
-    marginLeft: 50,
-    marginBottom: 30,
-    fontSize: 18,
-    color: "white",
-    fontWeight: "500",
   },
 
-  comA: {
-    marginLeft: 50,
-    marginBottom: 30,
-    fontSize: 18,
-    color: "white",
-    fontWeight: "500",
+  imgModal: {
+    width: 250,
+    height: 170,
+    alignSelf: "center",
+    padding: 10,
+    marginTop: "10%",
+    borderRadius: 14,
   },
 
-  comAD: {
-    marginLeft: 150,
-    marginBottom: 30,
-    fontSize: 18,
-    color: COLORS.black,
-    fontWeight: "500",
-  },
-
-  des: {
-    marginLeft: 70,
-    color: "white",
-  },
-  sur: {
-    marginLeft: 70,
-    marginBottom: 45,
-    fontSize: 18,
+  comAvailable: {
+    marginLeft: "25%",
+    marginTop: "10%",
+    fontSize: 20,
     color: "white",
     fontWeight: "500",
   },
@@ -131,26 +117,49 @@ const ITEMS = {
     justifyContent: "center",
   },
 
+  comAvailableModal: {
+    textAlign: "center",
+    paddingTop: 20,
+    fontSize: 20,
+    color: COLORS.black,
+    fontWeight: "500",
+  },
+
   modalContent: {
     width: "100%",
     height: "60%",
     backgroundColor: COLORS.white,
     borderRadius: 20,
   },
-  bar: {
-    alignItems: "center",
-  },
+
   menuItem: {
     fontSize: 18,
     marginBottom: 15,
     marginTop: 15,
   },
 
+  BoxStat: {
+    marginVertical: 4,
+  },
+  StatBox: {
+    padding: 8,
+    marginTop: "10%",
+    backgroundColor: COLORS.overlay,
+    marginHorizontal: "30%",
+    borderRadius: 16,
+  },
+
+  StatText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+
   closeButton: {
     fontSize: 18,
     color: COLORS.red,
-    marginTop: 80,
     textAlign: "center",
+    paddingTop: "25%",
   },
 };
 
