@@ -19,14 +19,17 @@ const Navigate = () => {
   return (
     <NavigationContainer>
       <SafeAreaProvider>
-        <Stack.Navigator initialRouteName="Car" screenOptions={screenOptions}>
+        <Stack.Navigator
+          initialRouteName="Welcome"
+          screenOptions={screenOptions}
+        >
           <Stack.Screen
             name="Welcome"
             screenOptions={screenOptions}
             component={Welcome}
           />
 
-          {/* <Stack.Screen
+          <Stack.Screen
             name="Register"
             screenOptions={screenOptions}
             component={Register}
@@ -35,7 +38,7 @@ const Navigate = () => {
             name="Login"
             screenOptions={screenOptions}
             component={Login}
-          /> */}
+          />
 
           <Stack.Screen
             name="Menu"

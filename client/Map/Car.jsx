@@ -38,7 +38,7 @@ export default function Car() {
       await fetchAvailable30thFromFirebase();
     };
     fetData();
-    const unsubscribe = setInterval(fetData, 100000 * 1000);
+    const unsubscribe = setInterval(fetData, 10 * 1000);
     return () => {
       clearImmediate(unsubscribe);
     };

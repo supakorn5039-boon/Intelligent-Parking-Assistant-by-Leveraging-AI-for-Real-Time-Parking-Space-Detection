@@ -1,9 +1,0 @@
-import axios from "axios";
-
-export const register = async (data) => {
-  await axios.post("http://localhost:3000/register", data);
-};
-
-export const Login = async (data) => {
-  await axios.post("http://localhost:3000/register", data);
-};
