@@ -31,8 +31,8 @@ const ITEMS = {
     padding: 8,
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 20,
-    marginLeft: 120,
-    marginTop: 20,
+    marginLeft: "10%",
+    marginTop: "5%",
   },
 
   container: {
@@ -159,7 +159,7 @@ const ITEMS = {
     fontSize: 18,
     color: COLORS.red,
     textAlign: "center",
-    paddingTop: "25%",
+    paddingTop: "15%",
   },
 };
 

@@ -33,7 +33,7 @@ const generateParkingData = () => {
     day,
     availability: hours.map((hour) => ({
       time: `${hour}:00 - ${hour + 1}:00`,
-      spots: getRandomNumber(0, 10), // Generate random number of available spots (0 to 10)
+      spots: getRandomNumber(0, 9), // Generate random number of available spots (0 to 10)
     })),
   }));
 };
@@ -45,11 +45,11 @@ export default function Stat() {
   // Function to determine car icon color based on available spots
   const getCarColor = (spots) => {
     if (spots <= 2) {
-      return COLORS.red;
+      return COLORS.green;
     } else if (spots >= 3 && spots <= 6) {
       return COLORS.yellow;
     } else {
-      return COLORS.green;
+      return COLORS.red;
     }
   };
 
@@ -75,7 +75,7 @@ export default function Stat() {
                     <View key={idx} style={styles.row}>
                       <Text style={styles.cell}>{hourData.time}</Text>
                       <View style={styles.cell}>
-                        <Text style={styles.spots}>{hourData.spots}</Text>
+                        <Text style={styles.spots}>{hourData.spots} / 9</Text>
                         <CarIcon color={getCarColor(hourData.spots)} />
                       </View>
                     </View>

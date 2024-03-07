@@ -10,7 +10,7 @@ width, height = 100, 70
 angle = 90
 
 threshold = 70
-firebase_update_interval = 100000   # Update interval in seconds
+firebase_update_interval = 10   # Update interval in seconds
 
 # Initialize Firebase
 cred = credentials.Certificate(
@@ -59,7 +59,7 @@ def checkParkingSpace(imgPro, imgOriginal, posList):
 
 
 # video feed
-cap = cv2.VideoCapture('test3.mp4')
+cap = cv2.VideoCapture('testall.mp4')
 
 
 # camera_url = 'rtsp://admin:12345678@172.20.10.3:10554/tcp/av0_0'

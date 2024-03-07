@@ -46,28 +46,14 @@ export async function getAvailableLot() {
   return datas;
 }
 
-export async function getAvailableLot1() {
-  const ref1 = collection(firestore, "available-lot1");
-  const q1 = query(ref1, orderBy("available", "desc"), limit(10));
-  const data1 = await getDocs(q1);
+export async function getTime() {
+  const ref = collection(firestore, "available-lot");
+  const q = query(ref, orderBy("timestamp", "desc"), limit(10));
+  const data = await getDocs(q);
 
   let datas = {};
 
-  data1.docs.forEach((doc) => {
-    datas[doc.id] = { ...doc.data() };
-  });
-
-  return datas;
-}
-
-export async function getAvailableLot2() {
-  const ref2 = collection(firestore, "available-lot2");
-  const q2 = query(ref2, orderBy("available", "desc"), limit(10));
-  const data2 = await getDocs(q2);
-
-  let datas = {};
-
-  data2.docs.forEach((doc) => {
+  data.forEach((doc) => {
     datas[doc.id] = { ...doc.data() };
   });
 

@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
-import { getAvailableLot } from "../firebaseConfig";
+import { getAvailableLot, getTime } from "../firebaseConfig";
 
 import { COLORS, ITEMS, SIZES } from "../theme/theme";
 
@@ -20,6 +20,7 @@ export default function Car() {
   const [isModalVisible1, setModalVisible1] = useState(false);
 
   const [available30th, setAvailable30th] = useState(0);
+  const [time30th, setTime30th] = useState(0);
 
   // Fetching
   const fetchAvailable30thFromFirebase = async () => {
@@ -33,9 +34,18 @@ export default function Car() {
     }
   };
 
+  const fetTime30thFromFirebase = async () => {
+    const datas = await getTime();
+    const timestamp = datas["30"].timestamp;
+    const date = new Date(timestamp.toDate()); // Convert Firestore timestamp to JavaScript Date object
+    const formattedTime = date.toLocaleTimeString(); // Extract time in HH:MM:SS format
+    setTime30th(formattedTime);
+  };
+
   useEffect(() => {
     const fetData = async () => {
       await fetchAvailable30thFromFirebase();
+      await fetTime30thFromFirebase();
     };
     fetData();
     const unsubscribe = setInterval(fetData, 10 * 1000);
@@ -103,6 +113,11 @@ export default function Car() {
                   style={ITEMS.imgModal}
                   source={require("../assets/Photo/com.jpg")}
                 />
+
+                <Text style={ITEMS.comAvailableModal}>
+                  Last Update:{time30th}
+                </Text>
+
                 <Text style={ITEMS.comAvailableModal}>
                   Available :{" "}
                   <Text
