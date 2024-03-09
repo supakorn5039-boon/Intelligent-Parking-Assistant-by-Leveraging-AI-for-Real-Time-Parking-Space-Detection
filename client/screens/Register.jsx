@@ -12,7 +12,7 @@ import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import Modal from "react-native-modal";
-import Icon from "react-native-vector-icons/FontAwesome"; // Import FontAwesome icon set
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function Register() {
   const navigation = useNavigation();

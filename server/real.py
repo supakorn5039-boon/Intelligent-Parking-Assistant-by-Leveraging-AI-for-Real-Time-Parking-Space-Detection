@@ -7,11 +7,11 @@ import numpy as np
 import time
 import pytz
 
-width, height = 100, 70
-angle = 90
+# Define global variables
+width, height = 100, 70  # Define width and height
 
-threshold = 70
-firebase_update_interval = 10   # Update interval in seconds
+threshold = 510
+firebase_update_interval = 5   # Update interval in seconds
 
 # Initialize Firebase
 cred = credentials.Certificate("smart-parking-e0f33-firebase-adminsdk-g8j23-ba95d55480.json")
@@ -37,7 +37,7 @@ def checkParkingSpace(imgPro, imgOriginal, posList):
 
     for pos, angle in zip(positions, angles):
         x, y = pos
-        imgCrop = imgPro[y:y + height, x:x + width]
+        imgCrop = imgPro[y:y + height, x:x + width]  # Use width and height
         cv2.imshow(str(x*y), imgCrop)
         count = cv2.countNonZero(imgCrop)
 
@@ -50,6 +50,10 @@ def checkParkingSpace(imgPro, imgOriginal, posList):
             color = (0, 0, 255)  # Red
             thickness = 3
             fullCount += 1
+
+        # Draw the count of pixels above threshold
+        cv2.putText(imgOriginal, f"Count: {count}",
+                    (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
         # Rotate the rectangle before drawing
         rotated_rect = cv2.minAreaRect(
@@ -85,7 +89,6 @@ while True:
     success, img = cap.read()
     imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     imgBlur = cv2.GaussianBlur(imgGray, (3, 3), 1)
-    imgThreshold = cv2.adaptiveThreshold(imgBlur,255 , cv2.ADAPTIVE_THRESH_GAUSSIAN_C ,cv2.THRESH_BINARY_INV ,25 ,16)
 
     if not success:
         # End of video or video cannot be read.
@@ -94,9 +97,10 @@ while True:
     img_copy = img.copy()  # Create a copy of the frame to draw rectangles on
 
     img_hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
-    saturation = img_hsv[:, :, 1]  
+    saturation = img_hsv[:, :, 1]  # Saturation channel
+    imgThreshold = cv2.adaptiveThreshold(imgBlur,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV,25,16)
 
-    empty_count = checkParkingSpace(imgThreshold, img_copy, posList)
+    empty_count = checkParkingSpace(imgThreshold, img_copy, posList)  # Pass height parameter
 
     current_time = time.time()
     time_difference = current_time - last_firebase_update_time

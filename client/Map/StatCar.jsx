@@ -17,13 +17,13 @@ export default function Stat() {
 
   function generateParkingData() {
     const days = [
-      { day: "Monday", spots: [3, 5, 4, 2, 6, 7, 3, 4, 5, 6, 7, 1] },
-      { day: "Tuesday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 1] },
-      { day: "Wednesday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 2] },
-      { day: "Thursday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 3] },
-      { day: "Friday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 1] },
-      { day: "Saturday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 2] },
-      { day: "Sunday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 1] },
+      { day: "Monday", spots: [3, 5, 7, 8, 9, 9, 7, 8, 6, 5, 2] },
+      { day: "Tuesday", spots: [4, 6, 7, 8, 9, 9, 8, 9, 7, 5, 2] },
+      { day: "Wednesday", spots: [4, 6, 7, 9, 9, 9, 9, 7, 7, 5, 1] },
+      { day: "Thursday", spots: [4, 5, 7, 8, 9, 9, 7, 7, 5, 4, 2] },
+      { day: "Friday", spots: [4, 5, 6, 6, 9, 9, 9, 7, 4, 3, 1] },
+      { day: "Saturday", spots: [2, 4, 5, 5, 5, 4, 5, 4, 3, 2, 0] },
+      { day: "Sunday", spots: [2, 4, 4, 5, 4, 3, 4, 5, 3, 1, 0] },
     ];
 
     return days.map(({ day, spots }) => ({

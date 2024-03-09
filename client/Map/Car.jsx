@@ -37,6 +37,7 @@ export default function Car() {
           minute: "2-digit",
           second: "2-digit",
         }); // Extract time only
+        console.log("time:", time, "available:", available30th);
         setTime30th(time);
       } catch (error) {
         console.error("Error fetching data from Firebase:", error);
@@ -46,7 +47,7 @@ export default function Car() {
     fetchData();
 
     // Set up interval to fetch data every 3000 = 3 seconds
-    const intervalId = setInterval(fetchData, 1000 * 1000);
+    const intervalId = setInterval(fetchData, 5 * 1000);
 
     // Clean up interval when component unmounts
     return () => clearInterval(intervalId);
