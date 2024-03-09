@@ -14,7 +14,7 @@ threshold = 510
 firebase_update_interval = 100   # Update interval in seconds
 
 # Initialize Firebase
-cred = credentials.Certificate("smart-parking-e0f33-firebase-adminsdk-g8j23-ba95d55480.json")
+cred = credentials.Certificate("firebase.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
@@ -71,9 +71,9 @@ def checkParkingSpace(imgPro, imgOriginal, posList):
     return emptyCount  # Return the count of empty spaces
 
 # video feed
-cap = cv2.VideoCapture('testall.mp4')
+cap = cv2.VideoCapture('video')
 
-with open('carParkPos.pkl', 'rb') as f:
+with open('model', 'rb') as f:
     posList = pickle.load(f)
 
 print("Loaded posList:", posList)
