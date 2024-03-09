@@ -155,11 +155,19 @@ const ITEMS = {
     textAlign: "center",
   },
 
+  closeBox: {
+    marginTop: "15%",
+    backgroundColor: COLORS.overlay,
+    marginHorizontal: "40%",
+    borderRadius: 10,
+  },
+
   closeButton: {
     fontSize: 18,
     color: COLORS.red,
     textAlign: "center",
-    paddingTop: "15%",
+    paddingTop: "10%",
+    paddingBottom: "10%",
   },
 };
 

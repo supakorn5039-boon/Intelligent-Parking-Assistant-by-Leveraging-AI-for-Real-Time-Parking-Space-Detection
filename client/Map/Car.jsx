@@ -47,7 +47,7 @@ export default function Car() {
     fetchData();
 
     // Set up interval to fetch data every 3000 = 3 seconds
-    const intervalId = setInterval(fetchData, 5 * 1000);
+    const intervalId = setInterval(fetchData, 1000 * 1000);
 
     // Clean up interval when component unmounts
     return () => clearInterval(intervalId);
@@ -145,7 +145,10 @@ export default function Car() {
                   </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity onPress={handleCloseModal}>
+                <TouchableOpacity
+                  onPress={handleCloseModal}
+                  style={ITEMS.closeBox}
+                >
                   <Text style={ITEMS.closeButton}>Close</Text>
                 </TouchableOpacity>
               </View>
