@@ -5,6 +5,7 @@ from firebase_admin import credentials, firestore
 from datetime import datetime
 import numpy as np
 import time
+import pytz
 
 width, height = 100, 70
 angle = 90
@@ -13,11 +14,19 @@ threshold = 70
 firebase_update_interval = 10   # Update interval in seconds
 
 # Initialize Firebase
-cred = credentials.Certificate(
-    "smart-parking-e0f33-firebase-adminsdk-g8j23-ba95d55480.json")
+cred = credentials.Certificate("smart-parking-e0f33-firebase-adminsdk-g8j23-ba95d55480.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
+# Function to get the current time in Thailand's timezone
+def get_current_time_in_thailand():
+    # Set the timezone to Thailand
+    thailand_timezone = pytz.timezone('Asia/Bangkok')
+    # Get the current time in UTC
+    utc_now = datetime.utcnow()
+    # Convert the UTC time to Thailand's timezone
+    thailand_now = utc_now.replace(tzinfo=pytz.utc).astimezone(thailand_timezone)
+    return thailand_now
 
 def checkParkingSpace(imgPro, imgOriginal, posList):
     emptyCount = 0  # Initialize the count of empty (green) rectangles
@@ -57,16 +66,8 @@ def checkParkingSpace(imgPro, imgOriginal, posList):
 
     return emptyCount  # Return the count of empty spaces
 
-
 # video feed
 cap = cv2.VideoCapture('testall.mp4')
-
-
-# camera_url = 'rtsp://admin:12345678@172.20.10.3:10554/tcp/av0_0'
-
-# Create a VideoCapture object
-# cap = cv2.VideoCapture(camera_url)
-
 
 with open('carParkPos.pkl', 'rb') as f:
     posList = pickle.load(f)
@@ -84,6 +85,7 @@ while True:
     success, img = cap.read()
     imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     imgBlur = cv2.GaussianBlur(imgGray, (3, 3), 1)
+    imgThreshold = cv2.adaptiveThreshold(imgBlur,255 , cv2.ADAPTIVE_THRESH_GAUSSIAN_C ,cv2.THRESH_BINARY_INV ,25 ,16)
 
     if not success:
         # End of video or video cannot be read.
@@ -92,24 +94,24 @@ while True:
     img_copy = img.copy()  # Create a copy of the frame to draw rectangles on
 
     img_hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
-    saturation = img_hsv[:, :, 1]  # Saturation channel
-    _, imgThreshold = cv2.threshold(saturation, 100, 255, cv2.THRESH_BINARY)
+    saturation = img_hsv[:, :, 1]  
 
     empty_count = checkParkingSpace(imgThreshold, img_copy, posList)
 
     current_time = time.time()
-    if current_time - last_firebase_update_time >= firebase_update_interval:
+    time_difference = current_time - last_firebase_update_time
+    
+    if time_difference >= firebase_update_interval:
         try:
             doc_ref = db.collection('available-lot').document('30')
             doc_ref.set({
                 'available': empty_count,
-                'timestamp': firestore.SERVER_TIMESTAMP
+                'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             })
 
             print("Document added successfully.")
 
-            query = db.collection(
-                'available-lot').order_by('timestamp', direction=firestore.Query.DESCENDING)
+            query = db.collection('available-lot').order_by('timestamp', direction=firestore.Query.DESCENDING)
             documents = query.get()
 
             latest_doc_id = None
@@ -118,11 +120,9 @@ while True:
                 if i == 0:
                     latest_doc_id = document.id
                 else:
-                    db.collection(
-                        'available-lot').document(document.id).delete()
+                    db.collection('available-lot').document(document.id).delete()
 
-            print(
-                f"Previous documents deleted. Latest document ID: {latest_doc_id}")
+            print(f"Previous documents deleted. Latest document ID: {latest_doc_id}")
 
             last_firebase_update_time = current_time
         except Exception as e:

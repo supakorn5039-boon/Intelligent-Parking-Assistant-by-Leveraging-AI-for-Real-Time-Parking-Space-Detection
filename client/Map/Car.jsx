@@ -20,38 +20,36 @@ export default function Car() {
   const [isModalVisible1, setModalVisible1] = useState(false);
 
   const [available30th, setAvailable30th] = useState(0);
-  const [time30th, setTime30th] = useState(0);
-
-  // Fetching
-  const fetchAvailable30thFromFirebase = async () => {
-    const datas = await getAvailableLot();
-    console.log(datas);
-    console.log(setAvailable30th(datas["30"].available));
-
-    try {
-    } catch (error) {
-      console.error("Error fetching data from Firebase:", error);
-    }
-  };
-
-  const fetTime30thFromFirebase = async () => {
-    const datas = await getTime();
-    const timestamp = datas["30"].timestamp;
-    const date = new Date(timestamp.toDate()); // Convert Firestore timestamp to JavaScript Date object
-    const formattedTime = date.toLocaleTimeString(); // Extract time in HH:MM:SS format
-    setTime30th(formattedTime);
-  };
+  const [time30th, setTime30th] = useState("");
 
   useEffect(() => {
-    const fetData = async () => {
-      await fetchAvailable30thFromFirebase();
-      await fetTime30thFromFirebase();
+    const fetchData = async () => {
+      try {
+        // Fetch available lot data
+        const availableLotData = await getAvailableLot();
+        setAvailable30th(availableLotData["30"].available);
+
+        // Fetch timestamp data
+        const timestampData = await getTime();
+        const timestamp = timestampData["30"].timestamp;
+        const time = new Date(timestamp).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        }); // Extract time only
+        setTime30th(time);
+      } catch (error) {
+        console.error("Error fetching data from Firebase:", error);
+      }
     };
-    fetData();
-    const unsubscribe = setInterval(fetData, 10 * 1000);
-    return () => {
-      clearImmediate(unsubscribe);
-    };
+
+    fetchData();
+
+    // Set up interval to fetch data every 3000 = 3 seconds
+    const intervalId = setInterval(fetchData, 1000 * 1000);
+
+    // Clean up interval when component unmounts
+    return () => clearInterval(intervalId);
   }, []);
 
   const handleButtonClick = () => setModalVisible1(true);
@@ -115,7 +113,7 @@ export default function Car() {
                 />
 
                 <Text style={ITEMS.comAvailableModal}>
-                  Last Update:{time30th}
+                  Last Update: {time30th}
                 </Text>
 
                 <Text style={ITEMS.comAvailableModal}>

@@ -13,7 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 const Menu = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={tw`h-full`}>
+    <SafeAreaView style={tw`h-full bg-blue-200`}>
       <View style={tw`p-5`}>
         <Image
           source={require("../image/transport.png")}

@@ -6,7 +6,7 @@ const COLORS = {
   overlay: "#C1BEC0",
   green: "#6AB448",
   yellow: "#FFD95A",
-  bg: "#B5C0EF",
+  bg: "#BFDBFE",
   Modal: "#C3CAD3",
 };
 
@@ -59,7 +59,7 @@ const ITEMS = {
 
   container: {
     flex: 1,
-    backgroundColor: "#B5C0EF",
+    backgroundColor: "#BFDBFE",
   },
   header: {
     flexDirection: "row",

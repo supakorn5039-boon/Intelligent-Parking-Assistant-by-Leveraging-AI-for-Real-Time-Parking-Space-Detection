@@ -3,44 +3,37 @@ import {
   StyleSheet,
   SafeAreaView,
   Text,
-  TouchableOpacity,
   View,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
-import { useNavigation } from "@react-navigation/native";
 import { COLORS, ITEMS, SIZES } from "../theme/theme";
-
-// Function to generate a random number between min and max (inclusive)
-const getRandomNumber = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-// Mock parking availability data for demonstration
-const generateParkingData = () => {
-  const hours = Array.from({ length: 14 }, (_, i) => i + 8); // Generate hours from 8am to 10pm (22:00)
-  const days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
-
-  return days.map((day) => ({
-    day,
-    availability: hours.map((hour) => ({
-      time: `${hour}:00 - ${hour + 1}:00`,
-      spots: getRandomNumber(0, 9), // Generate random number of available spots (0 to 10)
-    })),
-  }));
-};
+import { useNavigation } from "@react-navigation/native";
 
 export default function Stat() {
   const navigation = useNavigation();
   const parkingAvailabilityData = generateParkingData();
+
+  function generateParkingData() {
+    const days = [
+      { day: "Monday", spots: [3, 5, 4, 2, 6, 7, 3, 4, 5, 6, 7, 1] },
+      { day: "Tuesday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 1] },
+      { day: "Wednesday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 2] },
+      { day: "Thursday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 3] },
+      { day: "Friday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 1] },
+      { day: "Saturday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 2] },
+      { day: "Sunday", spots: [2, 4, 5, 6, 7, 3, 4, 5, 3, 6, 7, 1] },
+    ];
+
+    return days.map(({ day, spots }) => ({
+      day,
+      availability: spots.map((spot, idx) => ({
+        time: `${8 + idx}:00 - ${9 + idx}:00`,
+        spots: spot,
+      })),
+    }));
+  }
 
   // Function to determine car icon color based on available spots
   const getCarColor = (spots) => {
@@ -63,6 +56,7 @@ export default function Stat() {
           >
             <ArrowLeftIcon size={SIZES.arrow} color={COLORS.black} />
           </TouchableOpacity>
+
           <Text style={ITEMS.title}>STATS</Text>
         </View>
         <ScrollView>
@@ -90,7 +84,6 @@ export default function Stat() {
   );
 }
 
-// Car icon component with color prop
 const CarIcon = ({ color }) => (
   <View style={[styles.carIcon, { backgroundColor: color }]}>
     <Text style={styles.carText}>🚗</Text>
