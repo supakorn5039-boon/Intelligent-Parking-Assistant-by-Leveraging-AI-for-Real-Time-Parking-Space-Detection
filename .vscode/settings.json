@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Beautiful Dracula Darker - No Highlight",
+  "workbench.colorTheme": "Beautiful Dracula Darker",
   "workbench.iconTheme": "material-icon-theme",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
@@ -17,11 +17,7 @@
   "terminal.integrated.tabs.enabled": true,
   "json.maxItemsComputed": 100000,
   "editor.maxTokenizationLineLength": 800000,
-  "yaml.schemas": {
-    "file:///c%3A/Users/Khazix/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
   "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "redhat.telemetry.enabled": true,
   "editor.bracketPairColorization.enabled": false,
   "[dart]": {
     "editor.formatOnSave": true,
@@ -30,21 +26,14 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": "off",
-    "editor.defaultFormatter": "Dart-Code.dart-code"
+    "editor.wordBasedSuggestions": "off"
   },
-  "go.toolsManagement.autoUpdate": true,
-  "dart.previewFlutterUiGuides": true,
-  "dart.previewFlutterUiGuidesCustomTracking": true,
   "editor.unicodeHighlight.nonBasicASCII": false,
   "editor.formatOnSave": true,
-  "vscode-pets.petSize": "medium",
   "css.lint.unknownAtRules": "ignore",
-  "cmake.configureOnOpen": false,
   "[python]": {
     "editor.formatOnType": true
   },
   "explorer.confirmDragAndDrop": false,
-  "editor.minimap.enabled": false,
-  "cSpell.words": ["grayp"]
+  "editor.minimap.enabled": false
 }

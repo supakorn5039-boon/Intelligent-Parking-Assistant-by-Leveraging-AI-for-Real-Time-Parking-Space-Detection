@@ -6,7 +6,7 @@ width, height = 100, 70
 angle = 90
 
 try:
-    with open('model', 'rb') as f:
+    with open('carParkPos.pkl', 'rb') as f:
         try:
             posList, colorList, angleList = pickle.load(f)
         except (ValueError, EOFError):
@@ -31,11 +31,11 @@ def mouseClick(events, x, y, flags, params):
                 angleList.pop(i)
 
     # Save the updated posList, colorList, and angleList to the file after each change
-    with open('model', 'wb') as f:
+    with open('carParkPos.pkl', 'wb') as f:
         pickle.dump((posList, colorList, angleList), f)
 
 
-img = cv2.imread('your-photo')
+img = cv2.imread('re.png')
 
 # camera_url = 'r stsp://admin:12345678@172.20.10.3:10554/tcp/av0_0'
 
