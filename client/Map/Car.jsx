@@ -19,7 +19,7 @@ export default function Car() {
 
   const [isModalVisible1, setModalVisible1] = useState(false);
 
-  const [available30th, setAvailable30th] = useState(0);
+  const [available30th, setAvailable30th] = useState("");
   const [time30th, setTime30th] = useState("");
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function Car() {
       } catch (error) {
         console.error("Error fetching data from Firebase:", error);
       }
-      console.log("time:", time30th, "available:", available30th);
+      // console.log("time:", time30th, "available:", available30th);
     };
 
     fetchData();
@@ -85,9 +85,9 @@ export default function Car() {
                   style={{
                     ...ITEMS.comA,
                     color:
-                      available30th <= 3
+                      available30th <= 2
                         ? COLORS.red
-                        : available30th <= 6 && available30th >= 4
+                        : available30th <= 5 && available30th >= 3
                         ? COLORS.yellow
                         : COLORS.green,
                   }}
@@ -123,10 +123,10 @@ export default function Car() {
                     style={{
                       ...ITEMS.comA,
                       color:
-                        available30th <= 3
+                        available30th <= 2
                           ? COLORS.red
-                          : available30th <= 6 && available30th >= 4
-                          ? COLORS.yellow
+                          : available30th <= 5 && available30th >= 3
+                          ? COLORS.orange
                           : COLORS.green,
                     }}
                   >

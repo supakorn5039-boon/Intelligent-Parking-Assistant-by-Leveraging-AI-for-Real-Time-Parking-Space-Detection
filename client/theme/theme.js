@@ -6,7 +6,9 @@ const COLORS = {
   overlay: "#C1BEC0",
   green: "#6AB448",
   yellow: "#FFD95A",
+  orange: "#FDA403",
   bg: "#BFDBFE",
+  gray2: "#EEEEEE",
   Modal: "#C3CAD3",
 };
 
@@ -128,7 +130,7 @@ const ITEMS = {
   modalContent: {
     width: "100%",
     height: "60%",
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.gray2,
     borderRadius: 20,
   },
 

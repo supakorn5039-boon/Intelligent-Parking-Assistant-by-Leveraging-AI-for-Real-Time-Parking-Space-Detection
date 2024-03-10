@@ -26,7 +26,7 @@ const Menu = () => {
         />
       </View>
 
-      <Text style={styles.selected}>Selected the Vahicle</Text>
+      <Text style={styles.selected}>Selected the Vehicle</Text>
       <View style={styles.headerBox}>
         <TouchableOpacity
           style={styles.Carbox}

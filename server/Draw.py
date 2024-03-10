@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 width, height = 100, 70
-angle = 90
+angle = 0
 
 try:
     with open('carParkPos.pkl', 'rb') as f:
@@ -59,7 +59,7 @@ while True:
     cv2.imshow("Image", img_copy)
     key = cv2.waitKey(1)
 
-    if key == 27:  # Press 'Esc' to exit the loop
+    if key == 27: 
         break
 
 cv2.destroyAllWindows()

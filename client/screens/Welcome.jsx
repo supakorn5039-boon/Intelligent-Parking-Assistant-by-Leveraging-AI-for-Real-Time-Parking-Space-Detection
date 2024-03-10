@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   text: {
-    color: "white",
+    color: "black",
     fontWeight: "bold",
     fontSize: 22,
     textAlign: "center",

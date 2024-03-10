@@ -8,10 +8,10 @@ import time
 import pytz
 
 # Define global variables
-width, height = 100, 70  # Define width and height
+width, height = 90, 70  # Define width and height
 
-threshold = 510
-firebase_update_interval = 30   # Update interval in seconds
+threshold = 420
+firebase_update_interval = 10   # Update interval in seconds
 
 # Initialize Firebase
 cred = credentials.Certificate("smart-parking-e0f33-firebase-adminsdk-g8j23-ba95d55480.json")
@@ -38,7 +38,7 @@ def checkParkingSpace(imgPro, imgOriginal, posList):
     for pos, angle in zip(positions, angles):
         x, y = pos
         imgCrop = imgPro[y:y + height, x:x + width]  # Use width and height
-        cv2.imshow(str(x*y), imgCrop)
+        # cv2.imshow(str(x*y), imgCrop)
         count = cv2.countNonZero(imgCrop)
 
         # Adjust the threshold value here based on your requirements
@@ -71,7 +71,11 @@ def checkParkingSpace(imgPro, imgOriginal, posList):
     return emptyCount  # Return the count of empty spaces
 
 # video feed
-cap = cv2.VideoCapture('testall.mp4')
+cap = cv2.VideoCapture('real.mp4')
+
+# camera_url = 'rtsp://admin:12345678@172.20.10.3:10554/tcp/av0_0'
+# cap = cv2.VideoCapture(camera_url)
+
 
 with open('carParkPos.pkl', 'rb') as f:
     posList = pickle.load(f)
@@ -94,7 +98,7 @@ while True:
         # End of video or video cannot be read.
         break
 
-    img_copy = img.copy()  # Create a copy of the frame to draw rectangles on
+    img_copy = img.copy() 
 
     img_hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
     saturation = img_hsv[:, :, 1]  # Saturation channel

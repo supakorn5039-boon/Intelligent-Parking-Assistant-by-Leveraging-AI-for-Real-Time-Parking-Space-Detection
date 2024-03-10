@@ -22,8 +22,6 @@ export default function Stat() {
       { day: "Wednesday", spots: [4, 6, 7, 9, 9, 9, 9, 7, 7, 5, 1] },
       { day: "Thursday", spots: [4, 5, 7, 8, 9, 9, 7, 7, 5, 4, 2] },
       { day: "Friday", spots: [4, 5, 6, 6, 9, 9, 9, 7, 4, 3, 1] },
-      { day: "Saturday", spots: [2, 4, 5, 5, 5, 4, 5, 4, 3, 2, 0] },
-      { day: "Sunday", spots: [2, 4, 4, 5, 4, 3, 4, 5, 3, 1, 0] },
     ];
 
     return days.map(({ day, spots }) => ({
@@ -63,7 +61,10 @@ export default function Stat() {
           <View style={styles.table}>
             {parkingAvailabilityData.map((dayData, index) => (
               <View key={index} style={styles.dayContainer}>
-                <Text style={styles.dayHeader}>{dayData.day}</Text>
+                <View style={styles.dayHeaderContainer}>
+                  <Text style={styles.dayHeader}>{dayData.day}</Text>
+                  <Text style={styles.currentcar}>Parked / Total</Text>
+                </View>
                 <View>
                   {dayData.availability.map((hourData, idx) => (
                     <View key={idx} style={styles.row}>
@@ -94,13 +95,28 @@ const styles = StyleSheet.create({
   table: {
     marginTop: 20,
     marginHorizontal: 10,
+    marginBottom: 40,
   },
   dayContainer: {
     marginBottom: 20,
   },
+  dayHeaderContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+
   dayHeader: {
     fontSize: 18,
     fontWeight: "bold",
+    marginBottom: 10,
+  },
+
+  currentcar: {
+    fontSize: 15,
+    fontWeight: "bold",
+    marginLeft: "35%",
     marginBottom: 10,
   },
   row: {
@@ -116,12 +132,13 @@ const styles = StyleSheet.create({
   },
   spots: {
     marginRight: 5,
+    marginBottom: 10,
   },
   carIcon: {
     marginLeft: 5,
     width: 25,
     height: 25,
-    borderRadius: 12.5,
+    borderRadius: 12,
     alignItems: "center",
     justifyContent: "center",
   },
