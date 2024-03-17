@@ -45,14 +45,17 @@ The Intelligent Parking Assistant leverages AI for real-time parking space detec
     **3.2 Test.py:**
     - Use this script to view the detected screen.
 
-    **3.3 Realtime Folder:**
+    **3.3 smart-parking.json:**
+    - Change firebase configuration in this file
+   
+    **3.4 Realtime Folder:**
     - Test your real-time application with your IP camera.
     - In `realtime.py`, use the following commands:
         ```python
         camera_url = 'Your Camera IP'
         cap = cv2.VideoCapture(camera_url)
         ```
-
+        
 5. **Test with Real Device:**
     - Connect both the mobile and computer to the same network or WiFi.
     - Open a camera and scan the QR code when running `npm start`.
