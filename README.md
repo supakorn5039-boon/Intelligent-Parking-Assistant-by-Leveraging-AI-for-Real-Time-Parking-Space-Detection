@@ -42,10 +42,10 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
     - To view the detected screen.
 
     **3.3 realtime folder:**
-        - To test your realtime application with you ip camera
+       - To test your realtime application with you ip camera
        - In realtime.py will have command 
-`camera_url = 'Your Camera IP'
-cap = cv2.VideoCapture(camera_url)` 
+        `camera_url = 'Your Camera IP'
+         cap = cv2.VideoCapture(camera_url)` 
 
       
 
