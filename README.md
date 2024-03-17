@@ -22,8 +22,8 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
    cd client
    npm start
    
-2.1 
-   
+2.1 When using command npm start:
+   - On the screen will show you to choose ios or android to test a mobile application 
    
 3. server Folder
    ```bash
