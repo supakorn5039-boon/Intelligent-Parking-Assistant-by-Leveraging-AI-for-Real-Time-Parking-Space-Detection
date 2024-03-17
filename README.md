@@ -39,4 +39,4 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
 
 4. **Test with Real Device:**
     - Connect both the mobile and computer to the same network or wifi.
-    - Open a camera and scan the QR code when running npm start.
+    - Open a camera and scan the QR code when running `npm start`.
