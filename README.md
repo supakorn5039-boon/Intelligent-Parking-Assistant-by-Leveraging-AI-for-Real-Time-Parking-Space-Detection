@@ -48,6 +48,6 @@ The Intelligent Parking Assistant leverages AI for real-time parking space detec
         cap = cv2.VideoCapture(camera_url)
         ```
 
-5. **Test with Real Device:**
+4. **Test with Real Device:**
     - Connect both the mobile and computer to the same network or WiFi.
     - Open a camera and scan the QR code when running `npm start`.
