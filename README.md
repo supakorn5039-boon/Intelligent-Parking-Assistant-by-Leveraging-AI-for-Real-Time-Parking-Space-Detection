@@ -10,33 +10,33 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
 - Expo App installed
 
 ### Installation Steps 
+
 1. **Clone the Repository:**
-   
-   ```bash
-   git clone https://github.com/supakorn5039-boon/Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
-   
-   cd Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
+    ```bash
+    git clone https://github.com/supakorn5039-boon/Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
+    cd Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
+    ```
 
-2. client Folder
-   ```bash
-   cd client
-   npm start
+2. **client Folder:**
+    ```bash
+    cd client
+    npm start
+    ```
 
-2.1 When using command npm start:
-   - On the screen will show you to choose ios or android to test a mobile application 
-   
-3. server Folder
-   ```bash
-   cd server
-   
- 3.1 DrawTest.py
-   - To create a rectangle to detect object
-     
- 3.2 Test.py
-   - To look at detect screen
+    **2.1 When using command npm start:**
+    - The screen will prompt you to choose iOS or Android to test the mobile application.
 
-4. Test with Real Device
-  - Connect both mobile and computer with same network or wifi
-  - Open a camera and Scan QR code when run npm start
+3. **server Folder:**
+    ```bash
+    cd server
+    ```
 
+    **3.1 DrawTest.py:**
+    - To create a rectangle to detect objects.
 
+    **3.2 Test.py:**
+    - To view the detected screen.
+
+4. **Test with Real Device:**
+    - Connect both the mobile and computer to the same network or wifi.
+    - Open a camera and scan the QR code when running npm start.
