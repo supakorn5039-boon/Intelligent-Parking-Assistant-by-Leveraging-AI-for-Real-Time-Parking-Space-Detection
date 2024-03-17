@@ -31,6 +31,10 @@ The Intelligent Parking Assistant leverages AI for real-time parking space detec
     ```bash
     cd server
     ```
+    - **Run The Code:**
+        ```bash
+        python filename.py
+        ```
 
     - Don't forget to change the Image and Video in `DrawTest.py` and `Test.py` .
         ```bash
