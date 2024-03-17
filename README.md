@@ -34,6 +34,11 @@ The Intelligent Parking Assistant leverages AI for real-time parking space detec
 
     Don't forget to change the Image and Video files in `DrawTest.py` and `Test.py`.
 
+    ```bash
+    cred = credentials.Certificate("smart-parking.json")
+    firebase_admin.initialize_app(cred)
+    ```
+
     **3.1 DrawTest.py:**
     - Use this script to create a rectangle to detect objects.
 
@@ -48,6 +53,6 @@ The Intelligent Parking Assistant leverages AI for real-time parking space detec
         cap = cv2.VideoCapture(camera_url)
         ```
 
-4. **Test with Real Device:**
+5. **Test with Real Device:**
     - Connect both the mobile and computer to the same network or WiFi.
     - Open a camera and scan the QR code when running `npm start`.
