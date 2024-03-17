@@ -35,8 +35,8 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
  3.2 Test.py
    - To look at detect screen
 
-ADDITIONAL NOTES
-- If test with real device you should connect mobile and computer with same network or wifi
+ 4. Test with Real Device
+  - Connect both mobile and computer with same network or wifi
+  - Open a camera and Scan QR code when run npm start
 
-   
-   
+
