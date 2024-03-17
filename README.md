@@ -41,6 +41,14 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
     **3.2 Test.py:**
     - To view the detected screen.
 
-4. **Test with Real Device:**
+    **3.3 realtime folder:**
+        - To test your realtime application with you ip camera
+       - In realtime.py will have command 
+`camera_url = 'Your Camera IP'
+cap = cv2.VideoCapture(camera_url)` 
+
+      
+
+5. **Test with Real Device:**
     - Connect both the mobile and computer to the same network or wifi.
     - Open a camera and scan the QR code when running `npm start`.
