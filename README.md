@@ -10,7 +10,8 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
 - Install Expo App
 
 # Installation Steps 
-  1. Clone the Repository:
-       git clone https://github.com/supakorn5039-boon/Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
-       cd Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
+1. Clone the Repository:
+   
+     git clone https://github.com/supakorn5039-boon/Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
+     cd Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
 
