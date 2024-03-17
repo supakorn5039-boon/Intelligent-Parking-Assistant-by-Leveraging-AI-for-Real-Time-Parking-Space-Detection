@@ -25,7 +25,7 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
 
     **2.1 When using command npm start:**
     - The screen will prompt you to choose iOS or Android to test the mobile application.
-    - Change in file firebaseConfig.js with your Firebase
+    - Change in file `firebaseConfig.js` with your Firebase
       
 
 3. **server Folder:**
@@ -33,7 +33,7 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
     cd server
     ```
 
-    Don't forget to change Image and Video in DrawTest and Test
+    Don't forget to change Image and Video in `DrawTest.py` and `Test.py`
 
     **3.1 DrawTest.py:**
     - To create a rectangle to detect objects.
