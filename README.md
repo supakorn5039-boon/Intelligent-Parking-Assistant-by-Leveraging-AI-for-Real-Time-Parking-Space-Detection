@@ -41,8 +41,8 @@ The Intelligent Parking Assistant leverages AI for real-time parking space detec
     - Use this script to view the detected screen.
 
     **3.3 Realtime Folder:**
-       - Test your real-time application with your IP camera.
-       - In `realtime.py`, use the following commands:
+    - Test your real-time application with your IP camera.
+    - In `realtime.py`, use the following commands:
         ```python
         camera_url = 'Your Camera IP'
         cap = cv2.VideoCapture(camera_url)
