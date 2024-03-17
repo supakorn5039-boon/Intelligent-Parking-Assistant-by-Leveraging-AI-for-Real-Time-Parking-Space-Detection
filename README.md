@@ -27,6 +27,7 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
    cd server
 3.1 DrawTest.py
    - To create a rectangle to detect object
+     
 3.2 Test.py
    - To look at detect screen
    
