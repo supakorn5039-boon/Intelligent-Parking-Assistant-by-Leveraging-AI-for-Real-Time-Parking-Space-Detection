@@ -22,6 +22,9 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
    cd client
    npm start
    
+2.1 
+   
+   
 3. server Folder
    ```bash
    cd server
@@ -30,5 +33,9 @@ The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space D
      
 3.2 Test.py
    - To look at detect screen
+
+ADDITIONAL NOTES
+- If test with real device you should connect mobile and computer with same network or wifi
+
    
    
