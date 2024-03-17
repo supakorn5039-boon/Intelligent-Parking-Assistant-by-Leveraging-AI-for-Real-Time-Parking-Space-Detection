@@ -62,3 +62,13 @@ The Intelligent Parking Assistant leverages AI for real-time parking space detec
 5. **Test with Real Device:**
     - Connect both the mobile and computer to the same network or WiFi.
     - Open a camera and scan the QR code when running `npm start`.
+
+## Additional Notes
+
+Before running the code, please ensure:
+
+- Your mobile device, IP camera, and Expo App are installed and configured correctly.
+- If using Firebase, update the `firebaseConfig.js` and `smart-parking.json` files with your Firebase configuration.
+- In the server folder, make sure to change the image and video files in `DrawTest.py` and `Test.py` as per your requirements.
+- For real-time testing with an IP camera, configure the `realtime.py` script with the appropriate camera URL.
+- Connect both the mobile and computer to the same network or WiFi before testing with a real device.
