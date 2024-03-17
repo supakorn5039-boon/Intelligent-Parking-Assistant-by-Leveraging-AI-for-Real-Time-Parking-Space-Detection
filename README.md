@@ -32,11 +32,11 @@ The Intelligent Parking Assistant leverages AI for real-time parking space detec
     cd server
     ```
 
-    Don't forget to change the Image and Video files in `DrawTest.py` and `Test.py`.
+    Don't forget to change the Image and Video in `DrawTest.py` and `Test.py` .
 
     ```bash
-    cred = credentials.Certificate("smart-parking.json")
-    firebase_admin.initialize_app(cred)
+    img = cv2.imread('Your-Image.png')
+    cap = cv2.VideoCapture('Youre-Video.mp4')
     ```
 
     **3.1 DrawTest.py:**
