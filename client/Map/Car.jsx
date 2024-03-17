@@ -16,10 +16,8 @@ import { COLORS, ITEMS, SIZES } from "../theme/theme";
 
 export default function Car() {
   const navigation = useNavigation();
-
   const [isModalVisible1, setModalVisible1] = useState(false);
-
-  const [available30th, setAvailable30th] = useState("");
+  const [available30th, setAvailable30th] = useState('');
   const [time30th, setTime30th] = useState("");
 
   useEffect(() => {
@@ -41,7 +39,6 @@ export default function Car() {
       } catch (error) {
         console.error("Error fetching data from Firebase:", error);
       }
-      // console.log("time:", time30th, "available:", available30th);
     };
 
     fetchData();
@@ -75,7 +72,7 @@ export default function Car() {
           <TouchableOpacity onPress={handleButtonClick} style={ITEMS.squareBox}>
             <Image
               style={ITEMS.img}
-              source={require("../assets/Photo/com.jpg")}
+              source={require("../image/carpark.png")}
             />
             <View>
               <Text style={ITEMS.comtitle}>อาคาร30ปี</Text>
@@ -110,7 +107,7 @@ export default function Car() {
               <View style={ITEMS.modalContent}>
                 <Image
                   style={ITEMS.imgModal}
-                  source={require("../assets/Photo/com.jpg")}
+                  source={require("../image/carpark.png")}
                 />
 
                 <Text style={ITEMS.comAvailableModal}>

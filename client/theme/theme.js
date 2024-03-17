@@ -92,14 +92,13 @@ const ITEMS = {
   },
 
   img: {
-    width: 150,
-    height: 120,
-    borderRadius: 15,
+    width: 90,
+    height: 90,
   },
 
   imgModal: {
-    width: 250,
-    height: 170,
+    width: 100,
+    height: 100,
     alignSelf: "center",
     padding: 10,
     marginTop: "10%",

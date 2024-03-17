@@ -35,11 +35,6 @@ const Menu = () => {
           <Image style={styles.car} source={require("../image/parking.png")} />
           <Text style={styles.TextCar}>Car Parking</Text>
         </TouchableOpacity>
-
-        {/* <View style={styles.Bikebox}>
-          <Image style={styles.Bike} source={require("../image/moped.png")} />
-          <Text style={styles.ComingSoon}>Coming Soon..</Text>
-        </View> */}
       </View>
     </SafeAreaView>
   );
@@ -77,23 +72,4 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 
-  // Bikebox: {
-  //   backgroundColor: "#C1BEC0",
-  //   alignSelf: "flex-end",
-  //   padding: 12,
-  //   marginRight: "8%",
-  //   borderRadius: 16,
-  // },
-
-  // Bike: {
-  //   width: 130,
-  //   height: 120,
-  // },
-
-  // ComingSoon: {
-  //   fontSize: 14,
-  //   color: "red",
-  //   fontWeight: "bold",
-  //   textAlign: "center",
-  // },
 });
