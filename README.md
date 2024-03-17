@@ -1,17 +1,17 @@
 # Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space Detection
 
-The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space Detection is develop using for a mobile to look at how many parking available on 30Years building
+The Intelligent Parking Assistant by Leveraging AI for Real-Time Parking Space Detection is developed for mobile devices to monitor the availability of parking spaces in the 30Years building.
 
-# Installation
+## Installation
 
-# Requirements 
+### Requirements 
 - Mobile
 - IP camera
-- Install Expo App
+- Expo App installed
 
-# Installation Steps 
-1. Clone the Repository:
+### Installation Steps 
+1. **Clone the Repository:**
    
-     git clone https://github.com/supakorn5039-boon/Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
-     cd Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
-
+   ```bash
+   git clone https://github.com/supakorn5039-boon/Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
+   cd Intelligent-Parking-Assistant-by-Leveraging-AI-for-Real-Time-Parking-Space-Detection
