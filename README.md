@@ -8,6 +8,7 @@ The Intelligent Parking Assistant leverages AI for real-time parking space detec
 - Mobile device
 - IP camera
 - Expo App installed
+- XCode application
 
 ### Installation Steps 
 
